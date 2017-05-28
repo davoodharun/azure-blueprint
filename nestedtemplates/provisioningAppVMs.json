@@ -253,6 +253,33 @@
 
                     }
                 },
+                {
+                    "apiVersion": "2015-06-15",
+                    "type": "Microsoft.Compute/virtualMachines/extensions",
+                    "name": "[concat(parameters('WebVMName'), copyindex(), '/baseline')]",
+                    "dependsOn": [
+                        "[concat(parameters('WebVMName'), copyindex())]"
+                    ],
+                    "location": "[resourceGroup().location]",
+                    "tags": {
+                        "displayName": "baseline",
+                        "Project": "BluePrint"
+                    },
+                    "properties": {
+                        "publisher": "Microsoft.Compute",
+                        "type": "CustomScriptExtension",
+                        "typeHandlerVersion": "1.8",
+                        "autoUpgradeMinorVersion": true,
+                        "settings": {
+                            "fileUris": "[parameters('postDeployScriptUris')]",
+                            "commandToExecute": "start powershell -ExecutionPolicy Unrestricted -File settimezonelogsize.ps1"
+                        },
+                        "protectedSettings": {
+                            "storageAccountName": "",
+                            "storageAccountKey": ""
+                        }
+                    }
+                }
                 /*{
                     "type": "Microsoft.Compute/virtualMachines/extensions",
                     "name": "[concat(parameters('WebVMName'), copyindex(), '/EnterpriseCloudMonitoring')]",
