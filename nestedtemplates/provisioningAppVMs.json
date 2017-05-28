@@ -279,7 +279,7 @@
                             "storageAccountKey": ""
                         }
                     }
-                }
+                },
                 /*{
                     "type": "Microsoft.Compute/virtualMachines/extensions",
                     "name": "[concat(parameters('WebVMName'), copyindex(), '/EnterpriseCloudMonitoring')]",
