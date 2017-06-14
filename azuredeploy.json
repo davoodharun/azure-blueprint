@@ -673,14 +673,14 @@
             "metadata": {
                 "description": "Linked Templates base url"
             },
-            "defaultValue": "https://raw.githubusercontent.com/davoodharun/azure-blueprint/sqlbypass/nestedtemplates"
+            "defaultValue": "https://raw.githubusercontent.com/davoodharun/azure-blueprint/sqlfix/nestedtemplates"
         },
         "dscBaseUrl": {
             "type": "string",
             "metadata": {
                 "description": "DSC Scripts base url"
             },
-            "defaultValue": "https://raw.githubusercontent.com/davoodharun/azure-blueprint/sqlbypass/DSC"
+            "defaultValue": "https://raw.githubusercontent.com/davoodharun/azure-blueprint/sqlfix/DSC"
         },
         "scriptsBaseUrl": {
             "type": "string",
@@ -688,7 +688,7 @@
                 "description": "DSC Scripts base url"
             },
 
-            "defaultValue": "https://raw.githubusercontent.com/davoodharun/azure-blueprint/sqlbypass/postdeploy"
+            "defaultValue": "https://raw.githubusercontent.com/davoodharun/azure-blueprint/sqlfix/postdeploy"
         },
         "sqlServerVersion": {
             "type": "string",
@@ -903,6 +903,8 @@
             "sqlwConfigurationFunction": "SQLWBaselineDSC.ps1\\SQLWBaselineDSC",
             "sql0ModulesURL": "[concat(parameters('dscBaseUrl'),'/SQL0BaselineDSC.ps1.zip')]",
             "sql0ConfigurationFunction": "SQL0BaselineDSC.ps1\\SQL0BaselineDSC",
+            "prepareAlwaysOnSQLURL": "[concat(parameters('dscBaseUrl'),'/SQL0BaselineDSC.ps1.zip')]",
+            "prepareAlwaysOnSQLFunction": "PrepareAlwaysOnSqlServer.ps1\\PrepareAlwaysOnSqlServer",
             "sql1ModulesURL": "[concat(parameters('dscBaseUrl'),'/SQL1BaselineDSC.ps1.zip')]",
             "sql1ConfigurationFunction": "SQL1BaselineDSC.ps1\\SQL1BaselineDSC",
             "webModulesURL": "[concat(parameters('dscBaseUrl'),'/WEBBaselineDSC.ps1.zip')]",
